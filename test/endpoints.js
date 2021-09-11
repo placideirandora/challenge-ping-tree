@@ -17,7 +17,7 @@ test.serial.cb('healthcheck', function (t) {
 })
 
 test.serial.cb('get targets endpoint - no targets', function (t) {
-  var url = 'api/target/get'
+  var url = 'api/targets'
   var options = { encoding: 'json', method: 'GET' }
 
   servertest(server(), url, options, function (err, res) {
@@ -30,7 +30,7 @@ test.serial.cb('get targets endpoint - no targets', function (t) {
 })
 
 test.serial.cb('create target endpoint - first target', function (t) {
-  var url = '/api/target/post'
+  var url = '/api/targets'
   var options = { encoding: 'json', method: 'POST' }
   var newTarget = {
     url: 'http://example.com',
@@ -91,7 +91,7 @@ test.serial.cb('create target endpoint - first target', function (t) {
 })
 
 test.serial.cb('create target endpoint - second target', function (t) {
-  var url = '/api/target/post'
+  var url = '/api/targets'
   var options = { encoding: 'json', method: 'POST' }
   var newTarget = {
     url: 'http://example.com',
@@ -152,7 +152,7 @@ test.serial.cb('create target endpoint - second target', function (t) {
 })
 
 test.serial.cb('get target endpoint - target available', function (t) {
-  var url = '/api/target/get/1'
+  var url = '/api/target/1'
   var options = { encoding: 'json', method: 'GET' }
 
   var expected = {
@@ -190,7 +190,7 @@ test.serial.cb('get target endpoint - target available', function (t) {
 })
 
 test.serial.cb('get target endpoint - target not found', function (t) {
-  var url = '/api/target/get/3'
+  var url = '/api/target/3'
   var options = { encoding: 'json', method: 'GET' }
 
   var expected = {
@@ -207,7 +207,7 @@ test.serial.cb('get target endpoint - target not found', function (t) {
 })
 
 test.serial.cb('get targets endpoint - targets available', function (t) {
-  var url = '/api/target/get'
+  var url = '/api/targets'
   var options = { encoding: 'json', method: 'GET' }
 
   servertest(server(), url, options, function (err, res) {
@@ -220,7 +220,7 @@ test.serial.cb('get targets endpoint - targets available', function (t) {
 })
 
 test.serial.cb('update target endpoint - target available', function (t) {
-  var url = '/api/target/post/1'
+  var url = '/api/target/1'
   var options = { encoding: 'json', method: 'POST' }
   var updatedTarget = {
     url: 'http://hello.com',
@@ -262,7 +262,7 @@ test.serial.cb('update target endpoint - target available', function (t) {
 })
 
 test.serial.cb('update target endpoint - target not available', function (t) {
-  var url = '/api/target/post/3'
+  var url = '/api/target/3'
   var options = { encoding: 'json', method: 'POST' }
   var updatedTarget = {
     url: 'http://hello.com',
@@ -303,7 +303,7 @@ test.serial.cb('update target endpoint - target not available', function (t) {
 })
 
 test.serial.cb('visitor endpoint - first request accepted ', function (t) {
-  var url = '/route/post'
+  var url = '/route'
   var options = { encoding: 'json', method: 'POST' }
 
   var expected = {
@@ -328,7 +328,7 @@ test.serial.cb('visitor endpoint - first request accepted ', function (t) {
 })
 
 test.serial.cb('visitor endpoint - second request accepted', function (t) {
-  var url = '/route/post'
+  var url = '/route'
   var options = { encoding: 'json', method: 'POST' }
 
   var expected = {
@@ -353,7 +353,7 @@ test.serial.cb('visitor endpoint - second request accepted', function (t) {
 })
 
 test.serial.cb('visitor endpoint - request rejected', function (t) {
-  var url = '/route/post'
+  var url = '/route'
   var options = { encoding: 'json', method: 'POST' }
 
   var expected = {
